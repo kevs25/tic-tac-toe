@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { flushSync } from "react-dom";
 
-export default function Player({ initalName, symbol }) {
+
+export default function Player({ initalName, symbol, isActive }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(initalName);
   function handleEdit() {
@@ -21,7 +21,7 @@ export default function Player({ initalName, symbol }) {
 
   }
   return (
-    <li>
+    <li className={isActive ? 'active' : undefined}>
       <span className="player">
         {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
